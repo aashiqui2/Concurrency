@@ -1,4 +1,8 @@
 *.class
 *.metadata
 *.sonarlint
-*.idea
+
+# IntelliJ IDEA project files
+.idea/
+*.iml
+out/
