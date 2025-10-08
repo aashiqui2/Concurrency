@@ -1,0 +1,37 @@
+package com.concurrency.repository.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.concurrency.entity.Employee;
+import com.concurrency.repository.EmployeeRepository;
+
+
+public class EmployeeRepositoryImpl2 implements EmployeeRepository {
+	private static List<Employee> employeeList = new ArrayList<>();
+
+	static {
+		employeeList.add(new Employee(201, "Amar"));
+		employeeList.add(new Employee(202, "Mohan"));
+		employeeList.add(new Employee(203, "Nancy"));
+		employeeList.add(new Employee(204, "Astha"));
+		employeeList.add(new Employee(205, "Rohit"));
+	}
+
+	@Override
+	public void displayEmployees() {
+		for (Employee employee : employeeList) {
+			System.out.println(employee);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "EmployeeRepositoryImpl2";
+	}
+}
